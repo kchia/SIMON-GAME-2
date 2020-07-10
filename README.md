@@ -13,6 +13,7 @@ A game using html, css, and js
 - As a player, I would like a themed style(using CSS), so I can enjoy an aesthetic portion of the game.
 - As a player, I would like the gameboard to resemble the original SIMON game, so I can have a sense of familiarity.
 - As a player, I would like an 'About the Game' modal, so I can have instructions on how to play.
+- As a player, I would like a reset button, so I can restart the game.
 
 ### Bronze
 
@@ -22,6 +23,8 @@ A game using html, css, and js
 ### Silver
 
 - As a player, I would like a 3-dimensional gameboard, so that it seems more realistic.
+- As a player, I would like a 'strict' feature that allows no mistakes, so I can challenge myself to get replicate each pattern or start over.
+- As a player, I would like a 'Game Over' screen that appears during the 'strict' feature if I replicate the pattern incorrectly.
 
 ### Gold
 
