@@ -12,11 +12,11 @@ A game using html, css, and js
 - As a player, I want an 'incorrect pattern' message, so I can know if my replicated pattern was incorrect.
 - As a player, I would like a themed style(using CSS), so I can enjoy an aesthetic portion of the game.
 - As a player, I would like the gameboard to resemble the original SIMON game, so I can have a sense of familiarity.
-- As a player, I would like an 'About the Game' modal, so I can have instructions on how to play.
 - As a player, I would like a reset button, so I can restart the game.
 
 ### Bronze
 
+- As a player, I would like an 'About the Game' modal, so I can have instructions on how to play.
 - As a player, I would like audio to play for every button in the pattern to help with timing.
 - As a player, I would like a 'victory screen' that appears when I get the correct pattern, so I can feel good about getting the right pattern.
 
