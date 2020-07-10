@@ -20,29 +20,31 @@
 	cursor: pointer;
 }
 
-.green-button {
+#green-button {
 	background-color: green;
 	margin-bottom: 20px;
 	border: 2px solid black;
 	padding: 20px;
 }
-.red-button {
+#red-button {
 	background-color: red;
 	margin-bottom: 20px;
 	border: 2px solid black;
 	padding: 20px;
 }
-.yellow-button {
+#yellow-button {
 	background-color: yellow;
 	border: 2px solid black;
 	padding: 20px;
 }
-.blue-button {
+#blue-button {
 	background-color: blue;
 	border: 2px solid black;
 	padding: 20px;
 }
-.restart-button {
+#restart-button,
+#start-button {
+	cursor: pointer;
 	border: 1px solid black;
 	text-align: center;
 	display: inline-block;

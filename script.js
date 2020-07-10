@@ -1,35 +1,52 @@
 //create variables for buttons
 //add event listeners to buttons
-const gameButtons = document.querySelectorAll('.game-buttons');
-gameButtons.forEach((button) => {
-	document.addEventListener('click', startGame);
-});
-
-var game = {
-	buttons: gameButtons,
-	compSequence: [],
-	playerSequence: [],
-	counter: 0,
-	counterDisplay: document.querySelector('.counter-display'),
-};
+const startButton = document.querySelector('#start-button');
+const greenButton = document.querySelector('#green-button');
+const yellowButton = document.querySelector('#yellow-button');
+const redButton = document.querySelector('#red-button');
+const blueButton = document.querySelector('#blue-button');
+// const buttons = document.querySelectorAll('.game-buttons');
+const restartButton = document.querySelector('#restart-button');
+const counterDisplay = document.querySelector('#counter-display');
+let colors = [greenButton, yellowButton, redButton, blueButton];
+let counter = 0;
+let compSequence = [];
+let playerSequence = [];
+let gameWin;
 
 function handleGameButtonClick() {}
 
-function resetGame() {}
-
-function generateCompSeq() {
-	game.counter++;
-	game.counterDisplay.innerText = game.counter;
-	game.compSequence.push(game.buttons[Math.floor(Math.random() * 4)]);
-	console.log(game.compSequence);
+restartButton.addEventListener('click', resetGame);
+function resetGame() {
+	counter = 0;
+	counterDisplay.innerText = counter;
+	compSequence = [];
+	playerSequence = [];
 }
 
+startButton.addEventListener('click', startGame);
 function startGame() {
-	resetGame();
 	generateCompSeq();
 }
 
-function addPlayerSeq() {}
+function generateCompSeq() {
+	// on = false;
+	counter++;
+	counterDisplay.innerText = counter;
+	compSequence.push(buttons[Math.floor(Math.random() * 4)]);
+	console.log(compSequence);
+	playerSeq();
+}
+
+function playerSeq(event) {
+	// for (let i = 0; i < buttons.length; i++) {
+	// 	buttons[i].addEventListener('click', playerTurn);
+	// }
+	// function playerTurn() {
+	// 	playerSequence.push(event.target);
+	// 	console.log(playerSequence);
+	// }
+}
 
 //create the computer's random sequencer and store it to an array
 //create an array for the user's sequence to be stored
