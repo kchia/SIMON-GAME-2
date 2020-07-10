@@ -1,0 +1,49 @@
+.gameboard {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+}
+.top-row-buttons {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.bottom-row-buttons {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.green-button {
+	background-color: green;
+	margin-bottom: 20px;
+	border: 2px solid black;
+	padding: 20px;
+}
+.red-button {
+	background-color: red;
+	margin-bottom: 20px;
+	border: 2px solid black;
+	padding: 20px;
+}
+.yellow-button {
+	background-color: yellow;
+	border: 2px solid black;
+	padding: 20px;
+}
+.blue-button {
+	background-color: blue;
+	border: 2px solid black;
+	padding: 20px;
+}
+.restart-button {
+	border: 1px solid black;
+	text-align: center;
+	display: inline-block;
+}
