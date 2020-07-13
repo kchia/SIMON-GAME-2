@@ -20,24 +20,24 @@
 	cursor: pointer;
 }
 
-#green-button {
+#green {
 	background-color: green;
 	margin-bottom: 20px;
 	border: 2px solid black;
 	padding: 20px;
 }
-#red-button {
+#red {
 	background-color: red;
 	margin-bottom: 20px;
 	border: 2px solid black;
 	padding: 20px;
 }
-#yellow-button {
+#yellow {
 	background-color: yellow;
 	border: 2px solid black;
 	padding: 20px;
 }
-#blue-button {
+#blue {
 	background-color: blue;
 	border: 2px solid black;
 	padding: 20px;
@@ -48,4 +48,18 @@
 	border: 1px solid black;
 	text-align: center;
 	display: inline-block;
+}
+
+/* glowing buttons */
+#green.glow {
+	background-color: rgb(167, 241, 167);
+}
+#red.glow {
+	background-color: rgb(245, 135, 135);
+}
+#yellow.glow {
+	background-color: rgb(216, 236, 124);
+}
+#blue.glow {
+	background-color: rgb(129, 137, 245);
 }
