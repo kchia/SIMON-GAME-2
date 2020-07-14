@@ -4,25 +4,27 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+			rel="stylesheet"
+		/>
 		<script defer src="script.js"></script>
 		<title>SIMON</title>
 	</head>
 	<body>
 		<h1 class="game-title">SIMON</h1>
+		<h2 id="wrong-message"></h2>
 		<main class="gameboard">
-			<div class="top-row-buttons">
-				<div type="button" class="game-buttons" id="green">green</div>
-				<div type="button" class="game-buttons" id="yellow">yellow</div>
-			</div>
-			<div class="bottom-row-buttons">
-				<div type="button" class="game-buttons" id="red"><a></a>red</div>
-				<div type="button" class="game-buttons" id="blue">blue</div>
-			</div>
+			<div type="button" class="game-buttons" id="green">green</div>
+			<div type="button" class="game-buttons" id="red"><a></a>red</div>
+			<div type="button" class="game-buttons" id="yellow">yellow</div>
+			<div type="button" class="game-buttons" id="blue">blue</div>
 		</main>
 		<div class="center-buttons">
 			<div id="counter-display">00</div>
 			<div type="button" id="start-button">Start</div>
+			<div type="button" id="restart-button">Restart Game</div>
+			<div type="button" id="replay-button">Replay</div>
 		</div>
-		<div type="button" id="restart-button">Restart Game</div>
 	</body>
 </html>

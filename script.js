@@ -21,18 +21,26 @@ const blueButton = document.querySelector('#blue');
 const buttons = document.querySelectorAll('.game-buttons');
 const restartButton = document.querySelector('#restart-button');
 const counterDisplay = document.querySelector('#counter-display');
+//keeps track of how many buttons comp has in sequence
 let counter = 0;
+//interval used to track current index of computerArray
 let computerInterval = 0;
+//Where 20 random numbers between 1-4 are stored
 let computerArray = [];
+//where one of the random numbers from computerArray are stored: 1 at a time
 let compSequence = [];
-let playerSequence = [];
+//used to track the index of the compSequence
 let currentColorNumber = 0;
+//Where player's moves are stored
+let playerSequence = [];
 let compGo;
 let playerGo;
 let gameWin;
 
+//reset game function
 restartButton.addEventListener('click', resetGame);
 function resetGame() {
+	wrongMessage.innerText = '';
 	counter = 0;
 	counterDisplay.innerText = counter;
 	currentColorNumber = 0;
@@ -41,14 +49,14 @@ function resetGame() {
 	compSequence = [];
 	playerSequence = [];
 }
-
+//start game function
 startButton.addEventListener('click', startGame);
 function startGame() {
 	compGo = true;
 
 	generateCompArray();
 }
-
+//generate 20 random moves
 function generateCompArray() {
 	for (let i = 0; i < 20; i++) {
 		computerArray.push(Math.floor(Math.random() * 4 + 1));
@@ -64,26 +72,40 @@ function storeCompMoves() {
 		compSequence.push(computerArray[computerInterval]);
 		computerInterval++;
 	}
-	if (compGo === true) {
-		if (compSequence[currentColorNumber] === 1) {
-			green();
-		}
-		if (compSequence[currentColorNumber] === 2) {
-			yellow();
-		}
-		if (compSequence[currentColorNumber] === 3) {
-			red();
-		}
-		if (compSequence[currentColorNumber] === 4) {
-			blue();
-		}
 
-		currentColorNumber++;
-		console.log(compSequence);
-	}
+	console.log(compSequence);
+	playCompAnimation();
 }
-//select which color function to run based on number in compSequence
 
+//sets the animation for each number in compSequence
+function assignColorAnimation(move) {
+	if (move === 1) {
+		green();
+	}
+	if (move === 2) {
+		yellow();
+	}
+	if (move === 3) {
+		red();
+	}
+	if (move === 4) {
+		blue();
+	}
+	playerGo = true;
+	compGo = false;
+}
+//need a function that plays the interval from the beginning each time with a timeout between indices.
+function playCompAnimation() {
+	compGo = true;
+	for (let i = 0; i < compSequence.length; i++) {
+		setTimeout(function () {
+			assignColorAnimation(compSequence[i]);
+		}, (i + 1) * 1200);
+	}
+	playerSequence = [];
+}
+
+//each button and their function when clicked by player
 greenButton.addEventListener('click', function () {
 	playerSequence.push(1);
 	green();
@@ -108,20 +130,31 @@ blueButton.addEventListener('click', function () {
 	compareColors();
 	console.log(playerSequence);
 });
-
+const wrongMessage = document.querySelector('h2');
+//compare the computer's and player's moves arrays
 function compareColors() {
 	let compStr = compSequence.toString();
 	let playerStr = playerSequence.toString();
-	if (compStr === playerStr) {
+	if (compStr === playerStr && counter !== 20) {
+		wrongMessage.innerText = 'CORRECT!';
+		setTimeout(function () {
+			wrongMessage.innerText = '';
+		}, 800);
 		console.log('correct');
 		storeCompMoves();
+	} else if (compStr !== playerStr && compStr.length === playerStr.length) {
+		wrongMessage.innerText = 'WRONG!';
+		setTimeout(function () {
+			wrongMessage.innerText = '';
+		}, 1500);
+		playCompAnimation();
+	} else if (compStr === playerStr && counter === 20) {
+		wrongMessage.innerText = 'WINNER!';
+		setTimeout(function () {
+			resetGame();
+		}, 2000);
 	}
 }
-
-//create the computer's random sequencer and store it to an array
-//create an array for the user's sequence to be stored
-//write a function to compare the sequences
-//start game function
 
 //button glowing/audio playing functions
 
@@ -129,7 +162,7 @@ function green() {
 	greenButton.classList.add('glow');
 	setTimeout(function () {
 		greenButton.classList.remove('glow');
-	}, 550);
+	}, 500);
 	greenAudio.play();
 }
 
@@ -137,47 +170,31 @@ function yellow() {
 	yellowButton.classList.add('glow');
 	setTimeout(function () {
 		yellowButton.classList.remove('glow');
-	}, 550);
+	}, 500);
 	yellowAudio.play();
 }
 function red() {
 	redButton.classList.add('glow');
 	setTimeout(function () {
 		redButton.classList.remove('glow');
-	}, 550);
+	}, 500);
 	redAudio.play();
 }
 function blue() {
 	blueButton.classList.add('glow');
 	setTimeout(function () {
 		blueButton.classList.remove('glow');
-	}, 550);
+	}, 500);
 	blueAudio.play();
 }
+//function for a replay sequence button
+const replayButton = document.querySelector('#replay-button');
+replayButton.addEventListener('click', replayCompSequence);
 
-// function generateCompSeq() {
-// 	// on = false;
-// 	counter++;
-// 	counterDisplay.innerText = counter;
-// 	compSequence.push(colors[Math.floor(Math.random() * 4)]);
-// 	console.log(compSequence);
-// 	for (let i = 0; i < compSequence.length; i++) {
-// 		setTimeout(() => {
-// 			if (compSequence[i] === 'green') {
-// 				green();
-// 			}
-// 			if (compSequence[i] === 'yellow') {
-// 				yellow();
-// 			}
-// 			if (compSequence[i] === 'red') {
-// 				red();
-// 			}
-// 			if (compSequence[i] === 'blue') {
-// 				blue();
-// 			}
-// 		}, 550);
-// 	}
-
-// 	playerSequence = [];
-// 	playerSeq();
-// }
+function replayCompSequence() {
+	replayButton.style.background = 'red';
+	setTimeout(function () {
+		replayButton.style.background = 'white';
+	}, 500);
+	playCompAnimation();
+}
