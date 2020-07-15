@@ -136,7 +136,7 @@ const wrongMessage = document.querySelector('h2');
 function compareColors() {
 	let compStr = compSequence.toString();
 	let playerStr = playerSequence.toString();
-	if (compStr === playerStr && counter !== 2) {
+	if (compStr === playerStr && counter !== 20) {
 		wrongMessage.innerText = 'CORRECT!';
 		setTimeout(function () {
 			wrongMessage.innerText = `LET'S PLAY`;
@@ -149,7 +149,7 @@ function compareColors() {
 			wrongMessage.innerText = `LET'S PLAY`;
 		}, 1500);
 		playCompAnimation();
-	} else if (compStr === playerStr && counter === 2) {
+	} else if (compStr === playerStr && counter === 20) {
 		wrongMessage.innerText = 'WINNER!';
 		wrongMessage.style.fontSize = '5em';
 		setTimeout(function () {
