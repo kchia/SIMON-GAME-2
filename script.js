@@ -40,7 +40,8 @@ let gameWin;
 //reset game function
 restartButton.addEventListener('click', resetGame);
 function resetGame() {
-	wrongMessage.innerText = '';
+	wrongMessage.innerText = `LET'S PLAY`;
+	wrongMessage.style.fontSize = '3em';
 	counter = 0;
 	counterDisplay.innerText = counter;
 	currentColorNumber = 0;
@@ -135,21 +136,22 @@ const wrongMessage = document.querySelector('h2');
 function compareColors() {
 	let compStr = compSequence.toString();
 	let playerStr = playerSequence.toString();
-	if (compStr === playerStr && counter !== 20) {
+	if (compStr === playerStr && counter !== 2) {
 		wrongMessage.innerText = 'CORRECT!';
 		setTimeout(function () {
-			wrongMessage.innerText = '';
+			wrongMessage.innerText = `LET'S PLAY`;
 		}, 800);
 		console.log('correct');
 		storeCompMoves();
 	} else if (compStr !== playerStr && compStr.length === playerStr.length) {
 		wrongMessage.innerText = 'WRONG!';
 		setTimeout(function () {
-			wrongMessage.innerText = '';
+			wrongMessage.innerText = `LET'S PLAY`;
 		}, 1500);
 		playCompAnimation();
-	} else if (compStr === playerStr && counter === 20) {
+	} else if (compStr === playerStr && counter === 2) {
 		wrongMessage.innerText = 'WINNER!';
+		wrongMessage.style.fontSize = '5em';
 		setTimeout(function () {
 			resetGame();
 		}, 2000);
@@ -194,7 +196,7 @@ replayButton.addEventListener('click', replayCompSequence);
 function replayCompSequence() {
 	replayButton.style.background = 'red';
 	setTimeout(function () {
-		replayButton.style.background = 'white';
+		replayButton.style.background = 'none';
 	}, 500);
 	playCompAnimation();
 }

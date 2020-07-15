@@ -11,20 +11,20 @@
 		<script defer src="script.js"></script>
 		<title>SIMON</title>
 	</head>
-	<body>
+	<body class="simon">
 		<h1 class="game-title">SIMON</h1>
-		<h2 id="wrong-message"></h2>
 		<main class="gameboard">
-			<div type="button" class="game-buttons" id="green">green</div>
-			<div type="button" class="game-buttons" id="red"><a></a>red</div>
-			<div type="button" class="game-buttons" id="yellow">yellow</div>
-			<div type="button" class="game-buttons" id="blue">blue</div>
+			<div type="button" class="game-buttons" id="green"></div>
+			<div type="button" class="game-buttons" id="red"></div>
+			<div type="button" class="game-buttons" id="yellow"></div>
+			<div type="button" class="game-buttons" id="blue"></div>
+			<div class="center-buttons">
+				<div type="button" id="start-button">START</div>
+				<div type="button" id="restart-button">RESTART GAME</div>
+				<div type="button" id="replay-button">REPLAY</div>
+				<div id="counter-display">00</div>
+			</div>
 		</main>
-		<div class="center-buttons">
-			<div id="counter-display">00</div>
-			<div type="button" id="start-button">Start</div>
-			<div type="button" id="restart-button">Restart Game</div>
-			<div type="button" id="replay-button">Replay</div>
-		</div>
+		<h2 id="wrong-message">press start</h2>
 	</body>
 </html>
