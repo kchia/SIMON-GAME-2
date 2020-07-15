@@ -1,28 +1,26 @@
 body {
-	/* background: repeating-linear-gradient(
-		45deg,
-		#6220b9,
-		rgb(151, 27, 209) 80px,
-		#031ca7 60px
-	); */
-	background-repeat: no-repeat;
-	background-size: stretch;
 	text-align: center;
 	align-items: center;
 	animation: simon 30s infinite;
 }
+
 @keyframes simon {
 	0% {
-		background-color: rgb(151, 27, 209);
+		background: rgb(151, 27, 209);
+	}
+	25% {
+		background: rgb(6, 6, 172);
 	}
 	50% {
-		background-color: rgb(6, 6, 172);
+		background: black;
+	}
+	75% {
+		background: rgb(6, 6, 172);
 	}
 	100% {
-		background-color: rgb(151, 27, 209);
+		background: rgb(151, 27, 209);
 	}
 }
-
 .game-title {
 	font-family: 'Righteous', cursive;
 	font-size: 3em;
@@ -48,14 +46,6 @@ body {
 	max-width: 300px;
 	float: center;
 }
-.game-buttons {
-	/* margin: 0;
-	height: 155px;
-	width: 155px;
-	float: left;
-	position: relative;
-	border: solid 5px black; */
-}
 
 #green {
 	background: rgb(22, 243, 22);
@@ -70,7 +60,6 @@ body {
 	border-radius: 0 160px 0 0;
 	grid-column: 5 / span 4;
 	grid-row: 1 / span 8;
-	box-shadow: 5px 0 rgb(35, 22, 36);
 }
 #yellow {
 	background: rgb(201, 245, 8);
@@ -78,7 +67,6 @@ body {
 	border-radius: 0 0 0 160px;
 	grid-column: 1 / span 4;
 	grid-row: 9 / span 8;
-	box-shadow: 0 5px rgb(35, 22, 36);
 }
 #blue {
 	background: rgb(35, 32, 250);
@@ -86,7 +74,6 @@ body {
 	border-radius: 0 0 160px;
 	grid-column: 5 / span 4;
 	grid-row: 9 / span 8;
-	box-shadow: 5px 2px rgb(35, 22, 36);
 }
 .center-buttons {
 	grid-column: 3 / span 4;
@@ -140,16 +127,16 @@ body {
 
 /* glowing buttons  */
 #green.glow {
-	background: radial-gradient(rgb(115, 163, 115) 10%, rgb(15, 223, 15));
+	background: radial-gradient(rgb(8, 218, 8) 10%, rgb(4, 129, 4));
 }
 #red.glow {
-	background: radial-gradient(rgb(197, 104, 98) 10%, red);
+	background: radial-gradient(rgb(175, 21, 10) 10%, rgb(99, 3, 3));
 }
 #yellow.glow {
-	background: radial-gradient(rgb(194, 192, 106) 10%, yellow);
+	background: radial-gradient(rgb(238, 235, 41) 10%, rgb(151, 151, 3));
 }
 #blue.glow {
-	background: radial-gradient(rgb(79, 95, 189) 10%, blue);
+	background: radial-gradient(rgb(18, 46, 204) 10%, rgb(4, 4, 112));
 }
 
 #wrong-message {
@@ -164,5 +151,53 @@ body {
 		rgb(240, 4, 240),
 		rgb(151, 27, 209)
 	);
-	margin-top: 30%;
+	margin-top: 18%;
+}
+@media screen and (min-width: 800px) {
+	.gameboard {
+		display: grid;
+		margin: auto;
+		margin-top: 3%;
+		grid-template-columns: repeat(8, 1fr);
+		grid-template-rows: repeat(16, 1fr);
+		grid-gap: 20px;
+		min-height: 500px;
+		max-height: 500px;
+		min-width: 250px;
+		max-width: 500px;
+		float: center;
+	}
+	#green {
+		border-radius: 320px 0 0 0;
+	}
+	#red {
+		border-radius: 0 320px 0 0;
+	}
+	#yellow {
+		border-radius: 0 0 0 320px;
+	}
+	#blue {
+		border-radius: 0 0 320px;
+	}
+	#restart-button,
+	#start-button,
+	#replay-button {
+		width: 130px;
+		border-radius: 40%;
+		border-radius: 40%;
+		border: 2px solid black;
+		margin: auto;
+		padding: 6px;
+		margin-top: 22px;
+		font-size: 15px;
+	}
+	#counter-display {
+		width: 50px;
+		height: 40px;
+		font-size: 35px;
+		margin-top: 5px;
+	}
+	#wrong-message {
+		margin-top: 1%;
+	}
 }
