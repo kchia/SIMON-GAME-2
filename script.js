@@ -101,7 +101,7 @@ function playCompAnimation() {
 	for (let i = 0; i < compSequence.length; i++) {
 		setTimeout(function () {
 			assignColorAnimation(compSequence[i]);
-		}, (i + 1) * 1200);
+		}, (i + 1) * 1000);
 	}
 	playerSequence = [];
 }
