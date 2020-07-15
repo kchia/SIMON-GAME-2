@@ -4,8 +4,27 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+			rel="stylesheet"
+		/>
 		<script defer src="script.js"></script>
 		<title>SIMON</title>
 	</head>
-	<body></body>
+	<body class="simon">
+		<h1 class="game-title">SIMON</h1>
+		<main class="gameboard">
+			<div type="button" class="game-buttons" id="green"></div>
+			<div type="button" class="game-buttons" id="red"></div>
+			<div type="button" class="game-buttons" id="yellow"></div>
+			<div type="button" class="game-buttons" id="blue"></div>
+			<div class="center-buttons">
+				<div type="button" id="start-button">START</div>
+				<div type="button" id="restart-button">RESTART GAME</div>
+				<div type="button" id="replay-button">REPLAY</div>
+				<div id="counter-display">00</div>
+			</div>
+		</main>
+		<h2 id="wrong-message">press start</h2>
+	</body>
 </html>
