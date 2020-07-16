@@ -23,7 +23,10 @@
 }
 .game-title {
 	font-family: 'Righteous', cursive;
-	font-size: 4em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3em;
 	height: 80px;
 	background: linear-gradient(
 		to right,
@@ -120,15 +123,17 @@
 }
 .counter-display {
 	font-family: 'Orbitron', sans-serif;
-	font-size: 1em;
+	font-size: 0.8em;
 	border-radius: 30%;
 	border: 1px solid red;
 	height: 20px;
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: black;
 	color: red;
 	vertical-align: center;
-	width: 30px;
+	width: 20px;
 	margin: 0 auto;
 }
 
