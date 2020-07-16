@@ -1,5 +1,3 @@
-//create variables for buttons
-//add event listeners to buttons
 //audio courtesy of freecodecamp
 let greenAudio = new Audio(
 	'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
@@ -13,14 +11,13 @@ let yellowAudio = new Audio(
 let blueAudio = new Audio(
 	'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
 );
-const startButton = document.querySelector('#start-button');
-const greenButton = document.querySelector('#green');
-const yellowButton = document.querySelector('#yellow');
-const redButton = document.querySelector('#red');
-const blueButton = document.querySelector('#blue');
-const buttons = document.querySelectorAll('.game-buttons');
-const restartButton = document.querySelector('#restart-button');
-const counterDisplay = document.querySelector('#counter-display');
+const startButton = document.querySelector('.start-button');
+const greenButton = document.querySelector('.green');
+const yellowButton = document.querySelector('.yellow');
+const redButton = document.querySelector('.red');
+const blueButton = document.querySelector('.blue');
+const restartButton = document.querySelector('.restart-button');
+const counterDisplay = document.querySelector('.counter-display');
 //keeps track of how many buttons comp has in sequence
 let counter = 0;
 //interval used to track current index of computerArray
@@ -33,15 +30,15 @@ let compSequence = [];
 let currentColorNumber = 0;
 //Where player's moves are stored
 let playerSequence = [];
-let compGo;
-let playerGo;
-let gameWin;
 
 //reset game function
 restartButton.addEventListener('click', resetGame);
 function resetGame() {
-	wrongMessage.innerText = `LET'S PLAY`;
-	wrongMessage.style.fontSize = '3em';
+	restartButton.style.background = 'red';
+	setTimeout(function () {
+		restartButton.style.background = 'yellow';
+	}, 500);
+	gameMessage.innerText = `SIMON`;
 	counter = 0;
 	counterDisplay.innerText = counter;
 	currentColorNumber = 0;
@@ -53,7 +50,11 @@ function resetGame() {
 //start game function
 startButton.addEventListener('click', startGame);
 function startGame() {
-	compGo = true;
+	gameMessage.innerText = `LET'S PLAY!`;
+	startButton.style.background = 'red';
+	setTimeout(function () {
+		startButton.style.background = 'yellow';
+	}, 500);
 
 	generateCompArray();
 }
@@ -62,7 +63,6 @@ function generateCompArray() {
 	for (let i = 0; i < 20; i++) {
 		computerArray.push(Math.floor(Math.random() * 4 + 1));
 	}
-	console.log(computerArray);
 	storeCompMoves();
 }
 //push one item from the computerArray into the compSequence at a time
@@ -73,8 +73,6 @@ function storeCompMoves() {
 		compSequence.push(computerArray[computerInterval]);
 		computerInterval++;
 	}
-
-	console.log(compSequence);
 	playCompAnimation();
 }
 
@@ -111,47 +109,42 @@ greenButton.addEventListener('click', function () {
 	playerSequence.push(1);
 	green();
 	compareColors();
-	console.log(playerSequence);
 });
 yellowButton.addEventListener('click', function () {
 	playerSequence.push(2);
 	yellow();
 	compareColors();
-	console.log(playerSequence);
 });
 redButton.addEventListener('click', function () {
 	playerSequence.push(3);
 	red();
 	compareColors();
-	console.log(playerSequence);
 });
 blueButton.addEventListener('click', function () {
 	playerSequence.push(4);
 	blue();
 	compareColors();
-	console.log(playerSequence);
 });
-const wrongMessage = document.querySelector('h2');
+const gameMessage = document.querySelector('.game-title');
 //compare the computer's and player's moves arrays
 function compareColors() {
 	let compStr = compSequence.toString();
 	let playerStr = playerSequence.toString();
 	if (compStr === playerStr && counter !== 20) {
-		wrongMessage.innerText = 'CORRECT!';
+		gameMessage.innerText = 'CORRECT!';
 		setTimeout(function () {
-			wrongMessage.innerText = `LET'S PLAY`;
+			gameMessage.innerText = `LET'S PLAY!`;
 		}, 800);
-		console.log('correct');
 		storeCompMoves();
 	} else if (compStr !== playerStr && compStr.length === playerStr.length) {
-		wrongMessage.innerText = 'WRONG!';
+		gameMessage.innerText = 'WRONG!';
 		setTimeout(function () {
-			wrongMessage.innerText = `LET'S PLAY`;
+			gameMessage.innerText = `LET'S PLAY!`;
 		}, 1500);
 		playCompAnimation();
 	} else if (compStr === playerStr && counter === 20) {
-		wrongMessage.innerText = 'WINNER!';
-		wrongMessage.style.fontSize = '5em';
+		gameMessage.innerText = 'WINNER!';
+		gameMessage.style.fontSize = '5em';
 		setTimeout(function () {
 			resetGame();
 		}, 2000);
@@ -190,13 +183,13 @@ function blue() {
 	blueAudio.play();
 }
 //function for a replay sequence button
-const replayButton = document.querySelector('#replay-button');
+const replayButton = document.querySelector('.replay-button');
 replayButton.addEventListener('click', replayCompSequence);
 
 function replayCompSequence() {
 	replayButton.style.background = 'red';
 	setTimeout(function () {
-		replayButton.style.background = 'none';
+		replayButton.style.background = 'yellow';
 	}, 500);
 	playCompAnimation();
 }

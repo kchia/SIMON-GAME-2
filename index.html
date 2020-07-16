@@ -8,23 +8,26 @@
 			href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+			rel="stylesheet"
+		/>
 		<script defer src="script.js"></script>
 		<title>SIMON</title>
 	</head>
 	<body class="simon">
 		<h1 class="game-title">SIMON</h1>
 		<main class="gameboard">
-			<div type="button" class="game-buttons" id="green"></div>
-			<div type="button" class="game-buttons" id="red"></div>
-			<div type="button" class="game-buttons" id="yellow"></div>
-			<div type="button" class="game-buttons" id="blue"></div>
+			<button class="game-buttons green"></button>
+			<button class="game-buttons red"></button>
+			<button class="game-buttons yellow"></button>
+			<button class="game-buttons blue"></button>
 			<div class="center-buttons">
-				<div type="button" id="start-button">START</div>
-				<div type="button" id="restart-button">RESTART GAME</div>
-				<div type="button" id="replay-button">REPLAY</div>
-				<div id="counter-display">00</div>
+				<button class="start-button">START</button>
+				<button class="restart-button">RESTART GAME</button>
+				<button class="replay-button">REPLAY</button>
+				<p class="counter-display">00</p>
 			</div>
 		</main>
-		<h2 id="wrong-message">press start</h2>
 	</body>
 </html>

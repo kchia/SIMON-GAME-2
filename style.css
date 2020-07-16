@@ -1,4 +1,4 @@
-body {
+.simon {
 	text-align: center;
 	align-items: center;
 	animation: simon 30s infinite;
@@ -23,7 +23,8 @@ body {
 }
 .game-title {
 	font-family: 'Righteous', cursive;
-	font-size: 3em;
+	font-size: 4em;
+	height: 80px;
 	background: linear-gradient(
 		to right,
 		rgb(151, 27, 209) 10px,
@@ -46,29 +47,32 @@ body {
 	max-width: 300px;
 	float: center;
 }
+.game-buttons {
+	outline: none;
+}
 
-#green {
+.green {
 	background: rgb(22, 243, 22);
 	border: solid 5px black;
 	border-radius: 160px 0 0 0;
 	grid-column: 1 / span 4;
 	grid-row: 1 / span 8;
 }
-#red {
+.red {
 	background: rgb(240, 26, 26);
 	border: solid 5px black;
 	border-radius: 0 160px 0 0;
 	grid-column: 5 / span 4;
 	grid-row: 1 / span 8;
 }
-#yellow {
+.yellow {
 	background: rgb(201, 245, 8);
 	border: solid 5px black;
 	border-radius: 0 0 0 160px;
 	grid-column: 1 / span 4;
 	grid-row: 9 / span 8;
 }
-#blue {
+.blue {
 	background: rgb(35, 32, 250);
 	border: solid 5px black;
 	border-radius: 0 0 160px;
@@ -95,11 +99,12 @@ body {
 	border-radius: 100%;
 }
 
-#restart-button,
-#start-button,
-#replay-button {
+.restart-button,
+.start-button,
+.replay-button {
+	outline: none;
 	font-size: 0.9em;
-	background-color: grey;
+	background-color: rgb(226, 250, 9);
 	border-radius: 30%;
 	border-radius: 30%;
 	cursor: pointer;
@@ -113,7 +118,9 @@ body {
 	font-family: 'Righteous', cursive;
 	font-size: 13x;
 }
-#counter-display {
+.counter-display {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1em;
 	border-radius: 30%;
 	border: 1px solid red;
 	height: 20px;
@@ -121,38 +128,24 @@ body {
 	background-color: black;
 	color: red;
 	vertical-align: center;
-	width: 20px;
+	width: 30px;
 	margin: 0 auto;
 }
 
 /* glowing buttons  */
-#green.glow {
+.green.glow {
 	background: radial-gradient(rgb(8, 218, 8) 10%, rgb(4, 129, 4));
 }
-#red.glow {
+.red.glow {
 	background: radial-gradient(rgb(175, 21, 10) 10%, rgb(99, 3, 3));
 }
-#yellow.glow {
+.yellow.glow {
 	background: radial-gradient(rgb(238, 235, 41) 10%, rgb(151, 151, 3));
 }
-#blue.glow {
+.blue.glow {
 	background: radial-gradient(rgb(18, 46, 204) 10%, rgb(4, 4, 112));
 }
 
-#wrong-message {
-	display: block;
-	font-family: 'Righteous', cursive;
-	font-size: 3em;
-	color: rgb(151, 27, 209);
-	text-shadow: 2px 2px blue;
-	background: linear-gradient(
-		to right,
-		rgb(151, 27, 209) 10px,
-		rgb(240, 4, 240),
-		rgb(151, 27, 209)
-	);
-	margin-top: 18%;
-}
 @media screen and (min-width: 800px) {
 	.gameboard {
 		display: grid;
@@ -167,21 +160,21 @@ body {
 		max-width: 500px;
 		float: center;
 	}
-	#green {
+	.green {
 		border-radius: 320px 0 0 0;
 	}
-	#red {
+	.red {
 		border-radius: 0 320px 0 0;
 	}
-	#yellow {
+	.yellow {
 		border-radius: 0 0 0 320px;
 	}
-	#blue {
+	.blue {
 		border-radius: 0 0 320px;
 	}
-	#restart-button,
-	#start-button,
-	#replay-button {
+	.restart-button,
+	.start-button,
+	.replay-button {
 		width: 130px;
 		border-radius: 40%;
 		border-radius: 40%;
@@ -191,13 +184,21 @@ body {
 		margin-top: 22px;
 		font-size: 15px;
 	}
-	#counter-display {
-		width: 50px;
+	.counter-display {
+		width: 70px;
 		height: 40px;
 		font-size: 35px;
 		margin-top: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	#wrong-message {
-		margin-top: 1%;
+	.game-title {
+		height: 1.5em;
+		margin-top: 0;
+		font-size: 4em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
